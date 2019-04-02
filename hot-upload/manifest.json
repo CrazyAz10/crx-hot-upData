@@ -1,0 +1,51 @@
+{
+    "manifest_version": 2,
+    "name": "热更新插件demo",
+    "description": "热更新插件demo",
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    "permissions": [
+        "*://*/*",
+        "http://img.alicdn.com/",
+        "storage",
+        "cookies",
+        "webRequest",
+        "webRequestBlocking",
+        "tabs",
+        "alarms",
+        "notifications"
+    ],
+    "background": {
+        "page": "background.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*/*"
+            ],
+            "js": [
+                "lib/jquery.js",
+                "lib/crypto-min.js",
+                "lib/echarts.min.js",
+                "lib/echarts-wordcloud.min.js",
+				"lib/utils.js",
+				"js/common.js",
+                "js/main.js"
+            ],
+            "css": [
+                "css/common.css"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "browser_action": {
+      "default_icon": "icon128.png",
+      "default_title": "Az插件",
+      "default_popup": "popup.html"
+    },
+    "icons": {
+        "16": "icon16.png",
+        "48": "icon48.png",
+        "128": "icon128.png"
+    },
+    "version": "1.0.0.1"
+}
